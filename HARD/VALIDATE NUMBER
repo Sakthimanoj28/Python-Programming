@@ -1,0 +1,49 @@
+import re
+
+def is_number(s: str) -> bool:
+    # Define the regular expression for a valid number
+    number_regex = re.compile(r'^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$')
+    
+    # Match the input string against the regular expression
+    return bool(number_regex.match(s.strip()))
+
+# Get input from the user
+user_input = input("Enter a string to check if it's a valid number: ")
+if is_number(user_input):
+    print(f"'{user_input}' is a valid number.")
+else:
+    print(f"'{user_input}' is not a valid number.")
+
+# Test cases
+test_cases = [
+    ("0", True),
+    ("e", False),
+    (" ", False),
+    (".", False),
+    ("%", False),
+    ("2", True),
+    ("0089", True),
+    ("-0.1", True),
+    ("+3.14", True),
+    ("4.", True),
+    ("-.9", True),
+    ("2e10", True),
+    ("-90E3", True),
+    ("3e+7", True),
+    ("+6e-1", True),
+    ("53.5e93", True),
+    ("-123.456e789", True),
+    ("abc", False),
+    ("1a", False),
+    ("1e", False),
+    ("e3", False),
+    ("99e2.5", False),
+    ("--6", False),
+    ("-+3", False),
+    ("95a54e53", False)
+]
+
+# Run the test cases
+for i, (input_string, expected) in enumerate(test_cases):
+    result = is_number(input_string)
+    print(f"Test case {i+1}: Input: '{input_string}' | Output: {result} | Expected: {expected} | {'PASS' if result == expected else 'FAIL'}")

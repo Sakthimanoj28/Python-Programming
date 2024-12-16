@@ -1,0 +1,25 @@
+def max_guests_on_cruise(T: int, E: list, L: list) -> int:
+    if T <= 0 or len(E) != len(L):
+        return 0
+
+    max_guests = 0
+    current_guests = 0
+
+    for i in range(min(T, len(E))):
+        current_guests += E[i] - L[i]
+        max_guests = max(max_guests, current_guests)
+
+    return max_guests
+
+# Input from user
+try:
+    T = int(input("Enter the value of T (number of hours): "))
+    print("Enter the elements of E (guests entering each hour):")
+    E = [int(input()) for _ in range(T)]
+    print("Enter the elements of L (guests leaving each hour):")
+    L = [int(input()) for _ in range(T)]
+
+    result = max_guests_on_cruise(T, E, L)
+    print(f"Maximum number of guests on cruise at an instance: {result}")
+except ValueError:
+    print("Invalid input. Please enter integers only.")

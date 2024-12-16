@@ -1,0 +1,18 @@
+def modify_string(S: str) -> str:
+    from collections import Counter
+    freq = Counter(S)
+
+    def shift_char(c, shift):
+        return chr(((ord(c) - ord('a') + shift) % 26) + ord('a'))
+
+    modified = ''.join(shift_char(c, freq[c]) for c in S)
+    return modified
+try:
+    S = input("Enter the string (lowercase alphabets only): ").strip()
+    if not S.islower():
+        print("Invalid input. Please enter a string of lowercase alphabets only.")
+    else:
+        result = modify_string(S)
+        print(f"Modified string: {result}")
+except Exception as e:
+    print(f"An error occurred: {e}")
