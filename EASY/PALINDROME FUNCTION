@@ -1,0 +1,8 @@
+def is_palindrome(x):
+    str_x = str(x)
+    return str_x == str_x[::-1]
+x = int(input("Enter an integer: "))
+if is_palindrome(x):
+    print("True")
+else:
+    print("False")

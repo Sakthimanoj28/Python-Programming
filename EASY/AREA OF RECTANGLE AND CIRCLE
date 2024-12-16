@@ -1,0 +1,7 @@
+h=float(input("enter the height of the rectangle :"))
+b=float(input("enter the base of the rectangle :"))
+area_rectangle=h*b
+print("the area of the rectangle is =",area_rectangle)
+r=float(input("enter the radius of the circle :"))
+area_circle=3.14*r*r
+print("the area of the circle is =",area_circle)

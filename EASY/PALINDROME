@@ -1,0 +1,14 @@
+num=int(input("Enter the number :"))
+Sum=0
+temp=num
+while num>0:
+        
+      rem=num%10
+      Sum=Sum*10+rem
+      num=num//10
+      
+
+if Sum==temp:
+    print("The number is pallindrome")
+else:
+    print("The number is not pallindrome")
