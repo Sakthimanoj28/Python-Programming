@@ -1,0 +1,29 @@
+def max_area(heights):
+    left = 0
+    right = len(heights) - 1
+    max_area = 0
+    while left < right:
+        height = min(heights[left], heights[right])
+        width = right - left
+        current_area = height * width
+        max_area = max(max_area, current_area)
+        if heights[left] < heights[right]:
+            left += 1
+        else:
+            right -= 1
+
+    return max_area
+def main():
+    try:
+        heights = list(map(int, input("Enter the heights as space-separated integers: ").split()))
+
+        if len(heights) < 2:
+            print("At least two heights are required.")
+            return
+
+        result = max_area(heights)
+        print(f"The maximum area of water that can be contained is: {result}")
+
+    except ValueError:
+        print("Invalid input. Please enter valid integers.")
+main()

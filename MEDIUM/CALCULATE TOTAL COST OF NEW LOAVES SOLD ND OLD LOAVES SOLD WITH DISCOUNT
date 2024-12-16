@@ -1,0 +1,21 @@
+def calculate_total():
+    try:
+        REGULAR_PRICE = 185.0
+        DISCOUNT_RATE = 0.6
+        fresh_loaves = int(input("Enter the number of fresh loaves purchased: "))
+        day_old_loaves = int(input("Enter the number of day old loaves purchased: "))
+        if fresh_loaves < 0 or day_old_loaves < 0:
+            print("Number of loaves cannot be negative. Please try again.")
+            return
+
+        fresh_total = fresh_loaves * REGULAR_PRICE
+        day_old_total = day_old_loaves * REGULAR_PRICE * (1 - DISCOUNT_RATE)
+        total = fresh_total + day_old_total
+        print(f"\nRegular price: Rs.{REGULAR_PRICE:7.2f}")
+        print(f"Amount of new loaves: Rs.{fresh_total:7.2f}")
+        print(f"Amount of day old loaves: Rs.{day_old_total:7.2f}")
+        print(f"Total amount: Rs.{total:7.2f}")
+
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
+calculate_total()

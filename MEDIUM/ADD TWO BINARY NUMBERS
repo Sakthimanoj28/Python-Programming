@@ -1,0 +1,14 @@
+def add_binary(a, b):
+    return bin(int(a, 2) + int(b, 2))[2:]
+def main():
+    try:
+        a = input("Enter the first binary string (a): ").strip()
+        b = input("Enter the second binary string (b): ").strip()
+        if not all(c in '01' for c in a) or not all(c in '01' for c in b):
+            print("Invalid input. Both strings must be binary (contain only '0' or '1').")
+            return
+        result = add_binary(a, b)
+        print(f"The sum of the binary strings is: {result}")
+    except Exception as e:
+        print("An error occurred:", e)
+main()

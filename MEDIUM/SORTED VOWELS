@@ -1,0 +1,19 @@
+def count_vowel_strings(n):
+    if n <= 0:
+        return 0
+    from math import comb
+    return comb(n + 4, 4)
+def main():
+    try:
+        n = int(input("Enter the length of the strings (n): "))
+
+        if n < 1:
+            print("The length of the string must be a positive integer.")
+            return
+
+        result = count_vowel_strings(n)
+        print(f"The number of lexicographically sorted vowel strings of length {n} is: {result}")
+
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+main()
